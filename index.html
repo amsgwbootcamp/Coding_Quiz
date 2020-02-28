@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+  <head>
+    <title>Javascript Coding Quiz</title>
+    <link rel="shortcut icon" type="image/x-icon" href="./assets/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <
+  </head>
+
+  <body>
+      <br>
+      <br>
+      <br>
+      <br>
+    <div class="container">
+        <div class="row">
+            <div class="col w-100 text-center">
+                <H2>Javascript Coding Quiz</H2>
+              </div>
+              <div class="w-100"></div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col w-100 text-center">
+                <H6>Welcome to the Javascript Coding Quiz Game.<br>
+                You will have a limited amount of time to answer as many questions as you can.<br>
+                For each question you get wrong, time will be deducted from the timer.<br>
+                The top five scores will be recorded.<br>
+                Good luck.</H6>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col w-100 text-center">
+                <button type="button" class="btn btn-primary" onclick="start_quiz()">Begin the Quiz</button>
+            </div>
+        </div>  
+        <br>
+        <div class="row">
+            <div class="col w-100 text-center">
+                <button type="button" class="btn btn-primary" onclick="view_highscores()">View High Scores</button>
+            </div>
+        </div>  
+      </div>
+  </body>
+  <script>
+      function start_quiz()
+      {
+          location.href = "quiz.html";
+      }
+
+      function view_highscores()
+      {
+          location.href="highscores.html";
+      }
+  </script>
+</html>

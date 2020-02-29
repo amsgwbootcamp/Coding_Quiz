@@ -1,4 +1,11 @@
 var secondsDisplay = document.querySelector("#seconds");
+var buttonOne = document.querySelector("#button-1");
+var buttonTwo = document.querySelector("#button-2");
+var buttonThree = document.querySelector("#button-3");
+var buttonFour = document.querySelector("#button-4");
+var e = 0;
+
+
 var totalSeconds = 0;
 var secondsElapsed = 0;
 var totalSeconds = secondsDisplay.textContent;
@@ -94,3 +101,48 @@ function finalProcessing() {
     alert("Time is up!!!!!");
     secondsDisplay.textContent = "0";
   }
+
+function checkButtonClicked(e)
+{
+  if (e === 1)
+  {
+    alert("Button 1 has been clicked");
+  } 
+  else if (e === 2)
+  {
+    alert("Button 2 has been clicked");
+  }
+  else if (e === 3)
+  {
+    alert("Button 3 has been clicked");
+  }
+  else 
+  {
+    alert("Button 4 has been clicked");
+  }
+}  
+
+buttonOne.addEventListener("click", function()
+{
+  var e = 1;
+  checkButtonClicked(e);
+});
+
+buttonTwo.addEventListener("click", function()
+{
+  var e = 2;
+  checkButtonClicked(e);
+});
+
+buttonThree.addEventListener("click", function()
+{
+  var e = 3;
+  checkButtonClicked(e);
+});
+
+buttonFour.addEventListener("click", function()
+{
+  var e = 4;
+  checkButtonClicked(e);
+});
+

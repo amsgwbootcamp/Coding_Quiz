@@ -7,6 +7,7 @@ var buttonFour = document.querySelector("#button-4");
 var quizQuestionBox = document.querySelector("#quiz-question");
 var rightOrWrong = document.querySelector("#result");
 var nextButton = document.querySelector("#next-button");
+var userName = "";
 
 var theAnswer = "";
 var correctCounter = 0;
@@ -20,7 +21,7 @@ var quizQuestion4 = {question: "__________ JavaScript is also called server-side
 var quizQuestion5 = {question: "What are variables used for in JavaScript Programs?", answers:["Storing numbers, dates, or other values","Varying randomly","Causing high-school algebra flashbacks","None of the above"], key:"1"};
 var quizQuestion6 = {question: "_____ JavaScript statements embedded in an HTML page can respond to user events such as mouse-clicks, form input, and page navigation.", answers:["Client-side","Server-side","Local","Native"], key:"1"};
 var quizQuestion7 = {question: "What should appear at the very end of your JavaScript? If you have the following in your script: The <script LANGUAGE=\"JavaScript\">tag", answers:["The </script>","The <script>","The END statement","None of the above"], key:"1"};
-var quizQuestion8 = {question: "Which of the following can't be done with client-side JavaScript?", answers:["Validating a form","Sending a form's contents by email","Storing the form's contents to a database file on the server","Storing the form's contents to a database file on the server"], key:"3"};
+var quizQuestion8 = {question: "Which of the following can't be done with client-side JavaScript?", answers:["Validating a form","Sending a form's contents by email","Storing the form's contents to a database file on the server","None of the above"], key:"3"};
 var quizQuestion9 = {question: "Which of the following are capabilities of functions in JavaScript?", answers:["Return a value","Accept parameters and Return a value","Accept parameters","None of the above"], key:"2"};
 var quizQuestion10 = {question: "Which of the following is not a valid JavaScript variable name?", answers:["2names"," _first_and_last_names","FirstAndLast","None of the above"], key:"1"};
 var quizQuestion11 = {question: "______ tag is an extension to HTML that can enclose any number of JavaScript statements.", answers:["<SCRIPT>","<BODY>","<HEAD>","<TITLE>"], key:"1"};
@@ -307,9 +308,9 @@ function stopTimer()
   secondsElapsed = 0;
   setTime(); 
   renderTime();  
-  finalProcessing();
   notFinished = false;
-}
+  finalProcessing();
+  }
 
 function getTimePreferences() {
 /* This is where the app is really kicked-off, setTime and renderTime are the two main routines.  */
@@ -318,9 +319,10 @@ function getTimePreferences() {
 }
 
 function finalProcessing() {
-  /* This is where the app is really kicked-off, setTime and renderTime are the two main routines.  */
-    alert("You got " + correctCounter + " right.");
+  /* This is where the user can enter their score.    */
+    userName = prompt("You got " + correctCounter + " questions correct." + "\n" + "Please enter your initials or name so your score can be recorded." + "\n" + "Only the top 5 scores will be displayed.");
     secondsDisplay.textContent = "0";
+    
   }
 
 function checkButtonClicked(e)
@@ -369,4 +371,6 @@ nextButton.addEventListener("click", function()
     loadQuizQuestions();
   }
 });
+
+
 

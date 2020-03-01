@@ -5,7 +5,8 @@ var buttonThree = document.querySelector("#button-3");
 var buttonFour = document.querySelector("#button-4");
 var quizQuestionBox = document.querySelector("#quiz-question");
 var rightOrWrong = document.querySelector("#result");
-var e = 0;
+var nextButton = document.querySelector("#next-button");
+var theAnswer = "";
 
 // Quiz questions
 var quizQuestion1 = {question: "Why does Javascript and Java have simlar names?", answers:["Javascript is a stripped-down version of Java","JavaScript's syntax is loosely based on Java's","They both originated on the island of Java","None of the above"], key:"2"};
@@ -34,7 +35,8 @@ function loadQuizQuestions()
   buttonOne.innerText = allQuestions.quizQuestion1.answers[0];
   buttonTwo.innerText = allQuestions.quizQuestion1.answers[1];
   buttonThree.innerText = allQuestions.quizQuestion1.answers[2];
-  buttonFour.innerText = allQuestions.quizQuestion1.answers[3];
+  buttonFour.innerText = allQuestions.quizQuestion1.answers[3];  
+  theAnswer = allQuestions.quizQuestion1.key;
   rightOrWrong.innerText = "";
 }
 
@@ -138,7 +140,7 @@ function checkButtonClicked(e)
   {
     alert("Button 4 has been clicked");
   }  */
-  if (e === allQuestions.quizQuestion1.key)
+  if (e === theAnswer)
   {
     rightOrWrong.innerText = "Right";
   }
@@ -171,4 +173,22 @@ buttonFour.addEventListener("click", function()
   var e = "4";
   checkButtonClicked(e);
 });
+
+nextButton.addEventListener("click", function()
+{
+  alert("You pressed the next button");
+  displayNextQuestion();
+});
+
+function displayNextQuestion()
+{
+  /* alert("Display next question has been called");  */
+  quizQuestionBox.innerHTML = allQuestions.quizQuestion2.question;
+  buttonOne.innerHTML = allQuestions.quizQuestion2.answers[0];
+  buttonTwo.innerHTML = allQuestions.quizQuestion2.answers[1];
+  buttonThree.innerHTML = allQuestions.quizQuestion2.answers[2];
+  buttonFour.innerHTML = allQuestions.quizQuestion2.answers[3];  
+  theAnswer = allQuestions.quizQuestion2.key;
+  rightOrWrong.innerHTML = "";  
+}
 

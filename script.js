@@ -333,6 +333,8 @@ function checkButtonClicked(e)
   else
   {
     rightOrWrong.innerText = "Wrong";
+    secondsElapsed = secondsElapsed + 5;
+    renderTime();
   }
 }  
 

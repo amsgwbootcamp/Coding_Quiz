@@ -3,10 +3,17 @@ var buttonOne = document.querySelector("#button-1");
 var buttonTwo = document.querySelector("#button-2");
 var buttonThree = document.querySelector("#button-3");
 var buttonFour = document.querySelector("#button-4");
+var quizQuestionBox = document.querySelector("#quiz-question");
+var rightOrWrong = document.querySelector("#result");
 var e = 0;
 
+// Quiz questions
+var quizQuestion1 = {question: "Why does Javascript and Java have simlar names?", answers:["Javascript is a stripped-down version of Java","JavaScript's syntax is loosely based on Java's","They both originated on the island of Java","None of the above"], key:"2"};
+var quizQuestion2 = {question: "When a user views a page containing a Javascript program, which machine actually executes the script?", answers:["The User's machine running a Web browswer","The Web Server","A central machine deep within Netscape's corporate offices","None of the above"], key:"1"};
 
-var totalSeconds = 0;
+var allQuestions = {quizQuestion1, quizQuestion2};
+
+/* var totalSeconds = 0;    */
 var secondsElapsed = 0;
 var totalSeconds = secondsDisplay.textContent;
 var interval;
@@ -16,9 +23,20 @@ var interval;
    some functions just format strings or numbers, etc. */
 
 //this launches the app by calling setTime() and renderTime()
+loadQuizQuestions();
 getTimePreferences();
 startTimer();
 
+function loadQuizQuestions()
+{
+  /* alert(allQuestions.quizQuestion1.question);    */
+  quizQuestionBox.innerText = allQuestions.quizQuestion1.question;
+  buttonOne.innerText = allQuestions.quizQuestion1.answers[0];
+  buttonTwo.innerText = allQuestions.quizQuestion1.answers[1];
+  buttonThree.innerText = allQuestions.quizQuestion1.answers[2];
+  buttonFour.innerText = allQuestions.quizQuestion1.answers[3];
+  rightOrWrong.innerText = "";
+}
 
 function getFormattedSeconds() 
 {
@@ -104,7 +122,7 @@ function finalProcessing() {
 
 function checkButtonClicked(e)
 {
-  if (e === 1)
+  /* if (e === 1)
   {
     alert("Button 1 has been clicked");
   } 
@@ -119,30 +137,38 @@ function checkButtonClicked(e)
   else 
   {
     alert("Button 4 has been clicked");
+  }  */
+  if (e === allQuestions.quizQuestion1.key)
+  {
+    rightOrWrong.innerText = "Right";
+  }
+  else
+  {
+    rightOrWrong.innerText = "Wrong";
   }
 }  
 
 buttonOne.addEventListener("click", function()
 {
-  var e = 1;
+  var e = "1";
   checkButtonClicked(e);
 });
 
 buttonTwo.addEventListener("click", function()
 {
-  var e = 2;
+  var e = "2";
   checkButtonClicked(e);
 });
 
 buttonThree.addEventListener("click", function()
 {
-  var e = 3;
+  var e = "3";
   checkButtonClicked(e);
 });
 
 buttonFour.addEventListener("click", function()
 {
-  var e = 4;
+  var e = "4";
   checkButtonClicked(e);
 });
 

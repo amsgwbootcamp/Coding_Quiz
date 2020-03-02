@@ -7,10 +7,22 @@ var buttonFour = document.querySelector("#button-4");
 var quizQuestionBox = document.querySelector("#quiz-question");
 var rightOrWrong = document.querySelector("#result");
 var nextButton = document.querySelector("#next-button");
+var backButton = document.querySelector("#back-button");
 var userName = "";
+var highScore = document.querySelector("#highscore-list");
 
+// items needed for LocalStorage
+var displayName;
+var displayScore;
+var highScores = {
+  Name: displayName,
+  Score: displayScore
+};
+
+// items needed for script
 var theAnswer = "";
 var correctCounter = 0;
+var finalScore = 0;
 var notFinished = true;
 
 // Quiz questions
@@ -44,6 +56,8 @@ var secondsLeft = 0;
 var totalSeconds = secondsDisplay.textContent;
 var interval;
 
+
+
 /* One thing to distinguish here is that not all functions are created equal.
    Some functions just change settings, some functions just call other functions,
    some functions just format strings or numbers, etc. */
@@ -57,7 +71,9 @@ startTimer();
 
 function loadQuizQuestions()
 {
-  var question = Math.floor(Math.random() * 22);
+  localStorage.clear();
+  var question = 0;
+  question = Math.floor(Math.random() * 22);
   
   switch(question) 
   {
@@ -320,10 +336,15 @@ function getTimePreferences() {
 
 function finalProcessing() {
   /* This is where the user can enter their score.    */
-    userName = prompt("You got " + correctCounter + " questions correct." + "\n" + "Please enter your initials or name so your score can be recorded." + "\n" + "Only the top 5 scores will be displayed.");
     secondsDisplay.textContent = "0";
-    
-  }
+    finalScore = correctCounter * 5;
+    userName = prompt("You got " + correctCounter + " questions correct." + "\n" + "Please enter your initials or name so your score can be recorded." + "\n" + "Only the top 5 scores will be displayed.");
+    displayName = userName;
+    displayScore = finalScore;
+    localStorage.setItem("Name", displayName);
+    localStorage.setItem("Score", displayScore); 
+    location.href = "index.html";
+}    
 
 function checkButtonClicked(e)
 {
@@ -372,5 +393,7 @@ nextButton.addEventListener("click", function()
   }
 });
 
-
-
+backButton.addEventListener("click", function()
+{
+  location.href = "index.html";
+});

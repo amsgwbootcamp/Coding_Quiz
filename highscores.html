@@ -1,33 +1,40 @@
 <!DOCTYPE html>
   <head>
-    <title>Javascript Quiz High Scores</title>
-    <link rel="shortcut icon" type="image/x-icon" href="./assets/favicon.ico" />
+    <title>Javascript Scores</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    
   </head>
 
   <body>
+    <br>
+    <br>
     <div class="container">
-        <div class="row">
-            <div class="col w-100 text-center">
-                <H2>Javascript Quiz Top 5 Scores</H2>
-              </div>
-              <div class="w-100"></div>
+      <div class="row justify-content-md-center">
+        <div class="col col-lg-2"></div>
+        <div class="col-md-auto">
+          <H2>JavaScript Scores</H2>
         </div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+        <div class="col col-lg-2"></div>
+      </div>
+      <div class="row">
+        <div class="col w-100 text-center">
+          </div>
+        </div>
+        <div class="row highscore">
+          <div class="col-sm"></div>
+          <div class="col-sm">
+              <ol id="highscore-list"></ol>
+          </div>
+          <div class="col-sm"></div>
+        </div>
         <div class="row">
-            <div class="col w-100 text-center"></div>
-        </div>  
-        <br>
+          <div class="col w-100 text-center"><button id="clear-button" class="btn-choice btn btn-primary">Clear Button</button></div>
+        </div>
         <div class="row">
-            <div class="col w-100 text-center"></div>
-        </div>  
-      </div>  
+          <div class="col w-100 text-center"><button id="back-button" class="btn-choice btn btn-primary">Back Button</button></div>
+        </div>
+      <script src="script2.js"></script>    
   </body>
 </html>
